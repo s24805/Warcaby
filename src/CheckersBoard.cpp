@@ -13,8 +13,12 @@ CheckersBoard::CheckersBoard(){
         virtualBoard.push_back(rowVector); // Dodanie wiersza do wirtualnej planszy
     }
     highLight = false;                     // Inicjalizacja zmiennej highLight na false
+	/*
     highLightSelected.x = NULL;            // Inicjalizacja współrzędnej x wybranego pola na NULL
     highLightSelected.y = NULL;            // Inicjalizacja współrzędnej y wybranego pola na NULL
+	*/
+    highLightSelected.x = 0;            // Inicjalizacja współrzędnej x wybranego pola na NULL
+    highLightSelected.y = 0;            // Inicjalizacja współrzędnej y wybranego pola na NULL
 }
 
 // Destruktor klasy CheckersBoard
