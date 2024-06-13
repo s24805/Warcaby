@@ -8,12 +8,9 @@ GameOverState::GameOverState(){
     userQuit = false;                      // Inicjalizacja zmiennej userQuit na false
 }
 
-// Metoda renderująca ekran
-void GameOverState::stateRender(){
-    // Ustawienie koloru tła na jasny kolor drewna
-    SDL_SetRenderDrawColor(gRenderer, 0xD4, 0x9A, 0x6A, 0xFF);
-    // Wyczyść ekran
-    SDL_RenderClear(gRenderer);
+// Destruktor klasy GameOverState
+GameOverState::~GameOverState(){
+    // Pusty destruktor, brak dodatkowych zasobów do zwolnienia
 }
 
 // Metoda wykonywana przy wejściu w stan

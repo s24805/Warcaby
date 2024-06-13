@@ -117,27 +117,71 @@ bool GameState::loadMedia(){
     SDL_Rect destroyPiece4 = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
     spriteClips.push_back(destroyPiece4);
     cout << typeid(spriteClips).name() << endl;
-
+	
 
     // Ładowanie tekstury sprite'a
     if (!spriteSheetTexture.loadFromFile("data/CheckerSprites.png")) {
         printf("Could not load sprite");
-        @@ -114,7 +137,8 @@ bool GameState::loadMedia(){
-            // Czarny król
-            SDL_Rect blackKing = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
-            spriteClips.push_back(blackKing);
+        initSuccessful = false;
+    }
+    // Inicjalizacja klipów sprite'ów
+    // Czerwony pionek
+    SDL_Rect redPiece = {0, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
+    spriteClips.push_back(redPiece);
+    // Czarny pionek
+    SDL_Rect blackPiece = {BUTTON_WIDTH, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
+    spriteClips.push_back(blackPiece);
+    // Czerwony król
+    SDL_Rect redKing = {BUTTON_WIDTH * 2, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
+    spriteClips.push_back(redKing);
+    // Czarny król
+    SDL_Rect blackKing = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
+    spriteClips.push_back(blackKing);
+	
+	
+    int index = 0;
+    bool indent = true;
+    int xStart;
 
-            int index = 0;
-            bool indent = true;
-            int xStart;
-            @@ -154,8 +178,8 @@ StateEnum GameState::stateUpdate(){
+    // Ustawianie punktów dla przycisków (górny lewy punkt przycisku)
+    for(int y = 0; y < SCREEN_HEIGHT; y += BUTTON_HEIGHT){
+        if (indent) {
+            xStart = BUTTON_WIDTH;
+            indent = false;
+        } else {
+            xStart = 0;
+            indent = true;
+        }
+        for(int x = xStart; x < SCREEN_WIDTH; x += 2 * BUTTON_WIDTH){
+            boardButtons[index].setPoint(x, y);
+            index++;
+        }
+    }
+    return initSuccessful;
+}
+
+// Metoda sprawdzająca, czy gra się skończyła
+bool GameState::gameOver(){
+    if (Player1->team.size() == 0 || Player2->team.size() == 0) {
+        return true; // Gra kończy się, gdy drużyna jednego z graczy ma 0 pionków
+    }
+    return false;
+}
+
+// Metoda aktualizująca stan
+StateEnum GameState::stateUpdate(){
+    if (currentStateEnum != nextStateEnum) {
+        return nextStateEnum; // Zwraca następny stan, jeśli jest różny od bieżącego
+    }
+    return currentStateEnum;
+}
 
 // Metoda renderująca stan gry
-                void GameState::stateRender(){
-                    // Ustawienie koloru tła na jasny kolor drewna
-                    SDL_SetRenderDrawColor(gRenderer, 0xD4, 0x9A, 0x6A, 0xFF);
-                    // Wyczyść ekran
-                    SDL_RenderClear(gRenderer);
+void GameState::stateRender(){
+    // Ustawienie koloru tła na ciemny kolor
+    SDL_SetRenderDrawColor(gRenderer, 0x32, 0x0D, 0x94, 0xFF);
+    // Wyczyść ekran
+    SDL_RenderClear(gRenderer);
 
     Board->drawBoard(); // Narysuj planszę
 

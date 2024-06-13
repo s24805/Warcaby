@@ -182,9 +182,12 @@ void Player::movePiece(vector<vector<int>> &pBoard, vector<Piece>& teamMove, int
 
 // Metoda zabijająca pionek na planszy
 void Player::killPiece(vector<vector<int>> &pBoard, int x, int y) {
+    cout<<"Captured piece: \t("<<x<<" ,"<<y<<")\t"<<"from team: "<<pBoard[x][y]<<endl;
     pBoard[x][y] = EMPTY_PIECE; // Ustawia pole na planszy jako puste
     killWasMade = true; // Ustawia flagę informującą, że zabójstwo miało miejsce
+    
 }
+
 // Metoda aktualizująca zespół gracza
 void Player::updateTeam() {
     // Aktualizuje zespół, gdy rozmiar zespołu został zmieniony
