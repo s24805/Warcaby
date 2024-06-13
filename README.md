@@ -1,4 +1,4 @@
-Instalation:
+# A Instalation:
 
 sudo apt-get update
 apt-cache search libsdl2
