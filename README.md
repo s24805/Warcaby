@@ -1,7 +1,6 @@
 Instalation:
 
 sudo apt-get update
-
 apt-cache search libsdl2
 
 sudo apt-get install libsdl2-dev
