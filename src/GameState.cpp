@@ -116,7 +116,7 @@ bool GameState::loadMedia(){
     // Czarny król
     SDL_Rect destroyPiece4 = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
     spriteClips.push_back(destroyPiece4);
-    cout << typeid(spriteClips).name() << endl;
+    //cout << typeid(spriteClips).name() << endl;
 	
 
     // Ładowanie tekstury sprite'a
