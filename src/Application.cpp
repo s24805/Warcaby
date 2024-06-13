@@ -74,7 +74,7 @@ bool Application::init(){
         }
 
         // Utworzenie okna SDL
-        gWindow=SDL_CreateWindow("Checkers",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
+        gWindow=SDL_CreateWindow("Warcaby",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 
         if(gWindow==NULL)
         {
