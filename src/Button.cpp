@@ -12,9 +12,15 @@ Button::Button(){
 
 // Destruktor klasy Button
 Button::~Button(){
+    /*
     // Ustawienie współrzędnych punktu startowego przycisku na NULL
     buttonPoint.x = NULL;
     buttonPoint.y = NULL;
+    */
+    
+    // Ustawienie współrzędnych punktu startowego przycisku na NULL
+    buttonPoint.x = 0;
+    buttonPoint.y = 0;
 }
 
 // Metoda ustawiająca punkt startowy przycisku
