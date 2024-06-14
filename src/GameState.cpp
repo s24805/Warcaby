@@ -95,30 +95,22 @@ void GameState::stateEvent(){
 // Metoda ładująca media
 bool GameState::loadMedia(){
     bool initSuccessful = true;
-
-
 	
-		// Ładowanie tekstury sprite'a
-    if (!spriteSheetTexture.loadFromFile("data/White_Pawn_Destroy.png")) {
+	 // Ładowanie tekstury sprite'a
+    if (!spriteSheetTexture.loadFromFile("data/CheckerSprites2.png")) {
         printf("Could not load sprite");
         initSuccessful = false;
     }
     // Inicjalizacja klipów sprite'ów
     // Czerwony pionek
-    SDL_Rect destroyPiece1 = {0, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
-    spriteClips.push_back(destroyPiece1);
-    // Czarny pionek
-    SDL_Rect destroyPiece2 = {BUTTON_WIDTH, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
-    spriteClips.push_back(destroyPiece2);
-    // Czerwony król
-    SDL_Rect destroyPiece3 = {BUTTON_WIDTH * 2, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
-    spriteClips.push_back(destroyPiece3);
-    // Czarny król
-    SDL_Rect destroyPiece4 = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
-    spriteClips.push_back(destroyPiece4);
-    //cout << typeid(spriteClips).name() << endl;
+    for(int i =1; i<5;i++){
+		SDL_Rect redPiece = {0, BUTTON_HEIGHT*2*i, BUTTON_WIDTH*2, BUTTON_HEIGHT*2};
+		spriteClipsDestroy.push_back(redPiece);
+	}
+	//cout<<"spriteClipsDestroy size:"<<spriteClipsDestroy.size()<<endl;
 	
-
+	
+	spriteSheetTexture.free();
     // Ładowanie tekstury sprite'a
     if (!spriteSheetTexture.loadFromFile("data/CheckerSprites.png")) {
         printf("Could not load sprite");
