@@ -182,7 +182,8 @@ void Player::movePiece(vector<vector<int>> &pBoard, vector<Piece>& teamMove, int
 
 // Metoda zabijająca pionek na planszy
 void Player::killPiece(vector<vector<int>> &pBoard, int x, int y) {
-	spriteSheetTexture.render(x*80-40,y*80-40, &spriteClips[3]);
+	spriteSheetTexture.render(x*80-40,y*80-40, &spriteClips[0]);
+	cout<<"texture h:"<<spriteSheetTexture.getHeight()<<endl;
 	//pBoard[x][y]->animateDestroy(i);
     cout<<"Captured piece: \t("<<x<<" ,"<<y<<")\t"<<"from team: "<<pBoard[x][y]<<endl;
     pBoard[x][y] = EMPTY_PIECE; // Ustawia pole na planszy jako puste

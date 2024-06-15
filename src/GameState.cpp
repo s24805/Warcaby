@@ -95,27 +95,23 @@ void GameState::stateEvent(){
 // Metoda ładująca media
 bool GameState::loadMedia(){
     bool initSuccessful = true;
-	
-	 // Ładowanie tekstury sprite'a
-    if (!destroyAnimTexture.loadFromFile("data/CheckerSprites2.png")) {
-        printf("Could not load sprite");
-        initSuccessful = false;
-    }
-    // Inicjalizacja klipów sprite'ów
-    // Czerwony pionek
-    for(int i =1; i<5;i++){
-		SDL_Rect redPiece = {0, BUTTON_HEIGHT*2*i, BUTTON_WIDTH*2, BUTTON_HEIGHT*2};
-		spriteClipsDestroy.push_back(redPiece);
-	}
-	//cout<<"spriteClipsDestroy size:"<<spriteClipsDestroy.size()<<endl;
-	
-	
-	spriteSheetTexture.free();
+    
     // Ładowanie tekstury sprite'a
-    if (!spriteSheetTexture.loadFromFile("data/CheckerSprites.png")) {
+    if (!spriteSheetTexture.loadFromFile("data/CheckerSprites2.png")) {
         printf("Could not load sprite");
         initSuccessful = false;
     }
+    for(int j = 0; j<5;j++){
+		for(int i =0; i<4;i++){
+			//SDL_Rect redPiece = {0, BUTTON_HEIGHT*2*i, BUTTON_WIDTH*2, BUTTON_HEIGHT*2};
+			//spriteClipsDestroy.push_back(redPiece);
+			spriteClips.push_back({BUTTON_WIDTH*2*i, BUTTON_HEIGHT*2*j, BUTTON_WIDTH*2, BUTTON_HEIGHT*2});
+		}
+	}
+	cout<<"spriteClips size:"<<spriteClips.size()<<endl;
+	
+	
+    /*
     // Inicjalizacja klipów sprite'ów
     // Czerwony pionek
     SDL_Rect redPiece = {0, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
@@ -129,7 +125,7 @@ bool GameState::loadMedia(){
     // Czarny król
     SDL_Rect blackKing = {BUTTON_WIDTH * 3, 0, BUTTON_WIDTH, BUTTON_HEIGHT};
     spriteClips.push_back(blackKing);
-	
+	*/
 	
     int index = 0;
     bool indent = true;
