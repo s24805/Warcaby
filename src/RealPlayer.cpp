@@ -81,7 +81,7 @@ void RealPlayer::selectPiece(int x, int y){
 // Metoda sprawdzająca, czy wybrana lokalizacja jest prawidłowa
 bool RealPlayer::selectedLocationIsValid(int currentIndex, int x, int y, bool forHighlight) {
     bool locationIsValid = false;
-    if (Board->virtualBoard[x][y] == EMPTY_PIECE) {
+    if (Board->virtualBoard[x][y] == EMPTY_PIECE || Board->virtualBoard[x][y] == RED_PIECE_D1 || Board->virtualBoard[x][y] == BLACK_PIECE_D1 ||Board->virtualBoard[x][y] == RED_KING_D1 || Board->virtualBoard[x][y] == BLACK_KING_D1 ) {
 
         // przypadek 1: ruch w kwadracie 3x3 centrowanym na pochodzeniu //
         if (abs(x - team[currentIndex].x) == 1 && abs(y - team[currentIndex].y) == 1 && !killWasMade) {
