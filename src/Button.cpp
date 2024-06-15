@@ -30,6 +30,10 @@ void Button::setPoint(int x, int y){
     buttonPoint.y = y;
 }
 
+void Button::animateDestroy(int type){
+	//spriteSheetTexture.render(x*80-40,y*80-40, &spriteClips[3]);
+	spriteSheetTexture.render(buttonPoint.x-40,buttonPoint.y-40, &spriteClips[3]);
+}
 // Metoda renderująca przycisk z użyciem określonego sprite'a
 void Button::render(int sprite){
     // Renderowanie przycisku z użyciem tekstury spriteSheetTexture

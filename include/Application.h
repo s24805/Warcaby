@@ -42,6 +42,7 @@ protected:
 extern vector<SDL_Rect> spriteClips;
 extern vector<SDL_Rect> spriteClipsDestroy;
 extern Texture spriteSheetTexture;
+extern Texture destroyAnimTexture;
 extern int currentSprite;
 
 extern SDL_Window *gWindow;

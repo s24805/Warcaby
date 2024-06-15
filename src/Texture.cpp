@@ -43,9 +43,12 @@ bool Texture::loadFromFile(std::string path){
 
 // Metoda renderująca teksturę na ekranie
 void Texture::render(int x, int y, SDL_Rect *clip){
-
+	
     // Ustawienie miejsca renderowania na ekranie //
     SDL_Rect renderSpace = {x, y, width, height};
+    
+    // Ustawienie miejsca renderowania na ekranie //
+    //SDL_Rect renderSpace = {x-40, y-40, width, height};
 
     // Ustawienie wymiarów przestrzeni renderowania na podstawie wymiarów klipu //
     if(clip != NULL){

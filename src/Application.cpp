@@ -29,6 +29,7 @@ vector<SDL_Rect> spriteClipsDestroy;
 
 // Tekstura przechowująca sprite'y
 Texture spriteSheetTexture;
+Texture destroyAnimTexture;
 
 // Konstruktor klasy Application
 Application::Application(){

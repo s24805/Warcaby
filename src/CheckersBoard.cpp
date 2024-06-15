@@ -91,7 +91,6 @@ void CheckersBoard::drawHighlights() {
         }
     }
 }
-
 // Metoda rysująca pionki na planszy
 void CheckersBoard::drawBoardPeices(int x, int y, Button *boardButton){
     switch (virtualBoard[x][y]) {

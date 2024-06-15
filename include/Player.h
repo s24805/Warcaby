@@ -3,7 +3,6 @@
 
 #include "CheckersBoard.h"
 #include "Piece.h"
-
 using namespace std;
 
 class Button;
@@ -17,7 +16,6 @@ public:
     bool turn;
     void updateTeam();
     void updateKings();
-    
     // for multi turn loop
     bool killWasMade = false;
 protected:

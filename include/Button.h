@@ -22,6 +22,7 @@ public:
     void setPoint(int,int);
     bool insideButton(int,int);
     void render(int);
+    void animateDestroy(int);
     int getButtonPointX();
     int getButtonPointY();
 private:

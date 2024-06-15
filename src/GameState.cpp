@@ -97,7 +97,7 @@ bool GameState::loadMedia(){
     bool initSuccessful = true;
 	
 	 // Ładowanie tekstury sprite'a
-    if (!spriteSheetTexture.loadFromFile("data/CheckerSprites2.png")) {
+    if (!destroyAnimTexture.loadFromFile("data/CheckerSprites2.png")) {
         printf("Could not load sprite");
         initSuccessful = false;
     }
